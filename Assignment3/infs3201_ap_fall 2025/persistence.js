@@ -9,6 +9,12 @@ let client = null
  * @async
  * @returns {Promise<MongoClient>} MongoDB client instance.
  */
+async function connect() {
+  if (client) return client
+  client = new MongoClient(MONGO_URL)
+  await client.connect()
+  return client
+}
 
 /**
  * Get the photos collection.
@@ -102,4 +108,5 @@ module.exports = {
   getAllAlbums,
   getPhotosByAlbum
 }
+
 
