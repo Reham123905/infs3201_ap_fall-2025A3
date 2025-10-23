@@ -1,0 +1,21 @@
+<h1>Edit Photo {{photo.id}}</h1>
+
+{{#if error}}
+  <p style="color:red">{{error}}</p>
+{{/if}}
+
+<form method="post" action="/photos/{{photo.id}}/edit">
+  <div>
+    <label>Title</label>
+    <input name="title" value="{{photo.title}}">
+  </div>
+  <div>
+    <label>Description</label>
+    <textarea name="description">{{photo.description}}</textarea>
+  </div>
+  <div>
+    <button type="submit">Save</button>
+  </div>
+</form>
+
+<p><a href="/photos/{{photo.id}}">Cancel</a></p>
